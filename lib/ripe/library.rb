@@ -48,7 +48,6 @@ module Ripe
         workflows = Array.new
         paths.map do |path|
             directory =  path.concat("/workflows/")
-            puts path
             if File.directory?(directory) 
                 workflows += Dir.entries(directory).select {|f| f.match('.rb')}.reject{|f| f.match('^._')}.map{|f| File.basename(f, '.rb')}
             end
